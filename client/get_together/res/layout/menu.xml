@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+　　<Button 
+    android:id="@+id/event_menu" 
+    android:text="イベント" 
+    android:gravity="center_horizontal" 
+    android:layout_width="80dip" 
+    android:layout_height="wrap_content">
+　　</Button> 
+<Button android:id="@+id/contact_menu" 
+    android:text="友人帳" 
+    android:gravity="center_horizontal" 
+    android:layout_width="80dip" 
+    android:layout_height="wrap_content">
+　　</Button>
+　　<Button 
+ android:id="@+id/map_menu" 
+ android:text="地図" 
+ android:gravity="center_horizontal" 
+ android:layout_width="80dip" 
+ android:layout_height="wrap_content">
+　　</Button>
+　　<Button 
+android:id="@+id/setting_menu" 
+android:text="設置" 
+android:gravity="center_horizontal" 
+android:layout_width="80dip"
+android:layout_height="wrap_content">
+　　</Button>
+
+</LinearLayout>

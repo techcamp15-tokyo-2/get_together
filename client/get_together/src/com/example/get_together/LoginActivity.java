@@ -39,6 +39,9 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         btn_login.setOnClickListener(this);
 	}
 	
+	//if you do the network access in the main thread 
+	//you'll the wrong log massage: android.os.NetworkOnMainThreadException
+	//I was stuck on this problem for no less than 3 hours...
 	class LoginService implements  Runnable
 	{
 		@Override
@@ -48,7 +51,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 			password = pws.getText().toString().trim();
 			Log.i(TAG, "in the login");
 			//connect to server
-			String connectURL="http://172.19.211.105/get_together/login.php/";
+			String connectURL="http://172.19.208.114/get_together/login.php/";
 			
 			//send the mail and password to server.
 			boolean isLoginSucceed = gotoLogin(userMail, password,connectURL);
