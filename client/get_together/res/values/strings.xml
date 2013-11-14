@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">get_together</string>
+
+     <string name="app_name">get_together</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="text_login_id">メール:</string>
-    <string name="text_login_pwd">パースワード</string>
+    <string name="text_login_pwd">パースワード:</string>
     <string name="button_login">ログイン</string>
-      <string name="m_new">new</string>
+    
+    <string name="m_new">new</string>
     <string name="m_event">イベント</string>
     <string name="m_contact">友人帳</string>
     <string name="m_map">地図</string>
     <string name="m_settings">設定</string>
-
-    <string name="button_login">ログイン</string>    
+ 
     <!-- EVENT PAGE -->
     <string name="button_refresh">refresh</string>
     <string name="button_newEvent">new</string>
@@ -46,7 +47,6 @@
 
     <style name="buttonA">
         <item name="android:textSize">14dip</item>
-        <item name="android:padding">0dip</item>
     </style>
 
     <string name="title_activity_event">EventActivity</string>
