@@ -23,6 +23,7 @@
 			    android:text="@string/text_eventName" 
 			    android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
 		    <EditText
+		        android:id="@+id/nameInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:ems="10" >
@@ -39,11 +40,13 @@
 			    android:layout_width="80dip" 
 			    android:layout_height="wrap_content"></TextView>
 			<EditText
+			    android:id="@+id/dateTimeSelect"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:ems="10" >
 				 	<requestFocus />
 			</EditText>	
+			
 		</LinearLayout>
 
 		<!--EVENT ADDRESS -->
@@ -54,34 +57,41 @@
 			    android:text="@string/text_eventAddr" 
 			    android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
 		    <EditText
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
+		        android:id="@+id/addressInput"
+		        android:layout_width="wrap_content" android:layout_height="wrap_content"
 		        android:layout_weight="1"
 		        android:ems="7"
 		        android:inputType="textPostalAddress" />
 		    <Button 
+		        android:id="@+id/searchAddrBtn"
+		        style="@style/buttonA"
 		        android:text="@string/button_search"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 		</LinearLayout>
 		
 		<!--EVENT PEOPLE -->
 		<TextView android:text="@string/text_friendList"  android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
-		<EditText
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:ems="10" >
-				<requestFocus />
-		</EditText>
+		<ListView
+    	    android:id="@+id/contactList"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="220dip"
+    	    android:layout_marginTop="10dip" android:layout_marginLeft="80dip" >
+    	</ListView>
 			
 		<!--BUTTON -->
 		<LinearLayout 
 		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:layout_marginTop="10dip"
 		    android:orientation="horizontal" 
 		    android:layout_gravity="center">
 			<Button 
+			    style="@style/buttonA"
+			    android:id="@+id/makeEventBtn"
 			    android:text="@string/button_makeEvent"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 			<Button 
+			    style="@style/buttonA"
+			    android:id="@+id/clearBtn"
 			    android:text="@string/button_clear"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 		</LinearLayout>

@@ -50,48 +50,48 @@ package com.example.get_together;
 			list.add(map);
 			
 			map = new HashMap<String, Object>();
+			map.put("friendHead", R.drawable.header04);
+			map.put("friendName", "Dさん");
+			list.add(map);
+
+			map = new HashMap<String, Object>();
 			map.put("friendHead", R.drawable.header01);
-			map.put("friendName", "Aさん");
+			map.put("friendName", "Eさん");
 			list.add(map);
 
 			map = new HashMap<String, Object>();
 			map.put("friendHead", R.drawable.header02);
-			map.put("friendName", "Bさん");
-			list.add(map);
-
-			map = new HashMap<String, Object>();
-			map.put("friendHead", R.drawable.header03);
-			map.put("friendName", "Cさん");
+			map.put("friendName", "Fさん");
 			list.add(map);
 			
 			map = new HashMap<String, Object>();
-			map.put("friendHead", R.drawable.header01);
-			map.put("friendName", "Aさん");
-			list.add(map);
-
-			map = new HashMap<String, Object>();
-			map.put("friendHead", R.drawable.header02);
-			map.put("friendName", "Bさん");
-			list.add(map);
-
-			map = new HashMap<String, Object>();
 			map.put("friendHead", R.drawable.header03);
-			map.put("friendName", "Cさん");
+			map.put("friendName", "Gさん");
+			list.add(map);
+
+			map = new HashMap<String, Object>();
+			map.put("friendHead", R.drawable.header04);
+			map.put("friendName", "Hさん");
+			list.add(map);
+
+			map = new HashMap<String, Object>();
+			map.put("friendHead", R.drawable.header01);
+			map.put("friendName", "Iさん");
 			list.add(map);
 			
 			map = new HashMap<String, Object>();
-			map.put("friendHead", R.drawable.header01);
-			map.put("friendName", "Aさん");
-			list.add(map);
-
-			map = new HashMap<String, Object>();
 			map.put("friendHead", R.drawable.header02);
-			map.put("friendName", "Bさん");
+			map.put("friendName", "Jさん");
 			list.add(map);
 
 			map = new HashMap<String, Object>();
 			map.put("friendHead", R.drawable.header03);
-			map.put("friendName", "Cさん");
+			map.put("friendName", "Kさん");
+			list.add(map);
+
+			map = new HashMap<String, Object>();
+			map.put("friendHead", R.drawable.header04);
+			map.put("friendName", "Lさん");
 			list.add(map);
 			
 			return list;
