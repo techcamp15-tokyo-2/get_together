@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="match_parent" android:layout_width="match_parent">
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -16,9 +15,8 @@
 		    android:background="#00000000"
 		    android:src="@android:drawable/ic_menu_rotate" />		
 		<TextView android:text="Your Name" android:layout_gravity="center"
-		android:textSize="24sp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+			android:textSize="24sp"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 		<ImageButton
 		    android:id="@+id/imageButton2"
 		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
@@ -29,13 +27,17 @@
 	
 	<!-- 現在のイベント -->
 	<TextView android:text="現在のイベント" 
-				android:textSize="14sp" android:background="#00b7ef" android:padding="10dip"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+		android:textSize="14sp" 
+		android:background="#00b7ef" 
+		android:padding="10dip"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+
     <FrameLayout
-	android:layout_width="fill_parent" android:layout_height="wrap_content" 
-	android:background="#84ccc9" android:padding="10dip">
+		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:background="#84ccc9" android:padding="10dip">
 		<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
     		android:orientation="vertical" >
+    		<!-- 現在のイベント 内容 -->
 			<TextView android:text="インタン者集合！" 
 				android:textSize="24sp" android:layout_gravity="center"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"/>
@@ -52,6 +54,7 @@
 			<TextView android:text="参加者：" 
 				android:textSize="18sp"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+			<!-- 現在のイベント 参加者リスト　-->
 			<HorizontalScrollView android:id="@+id/HorizontalScrollView01"
    				android:fadingEdgeLength="0.0dip" android:background="#5B5B5B"
    				android:scrollbars="none"
@@ -176,73 +179,36 @@
     			</LinearLayout>
     		</HorizontalScrollView>
     	</LinearLayout>
-	
-	<Button
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center_vertical|right"
-	    style="@style/buttonA"
-	    android:text="集合！" />
+    	
+    	<ImageButton
+	    	android:id="@+id/imageButton1"
+	    	android:layout_width="25dp" android:layout_height="25dp"
+	    	android:background="#00000000"
+	    	android:layout_gravity="right|top"
+	    	android:src="@android:drawable/ic_delete" />
+    	
+    	<Button android:text="集合！"
+			android:layout_gravity="center_vertical|right"
+			style="@style/buttonA"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+
 	</FrameLayout>
 
-    <!-- イベントリスト -->
-    <TextView android:text="イベントリスト" 
-    		android:padding="10dip" android:layout_marginTop="10dip"
-			android:textSize="14sp" android:background="#dddddd"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"/>
-    
-    <FrameLayout
-	android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingLeft="10dip" android:paddingRight="10dip">
-		<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    		android:orientation="vertical" >
-		    <TextView android:text="インタン者集合" 
-				android:textSize="20sp"
+
+			<!-- イベントリスト 　タイトル　-->
+ 			<TextView android:text="イベントリスト" 
+ 		   		android:padding="10dip"
+				android:textSize="14sp" 
+				android:background="#cccccc"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
-		    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    		android:orientation="horizontal" >
-    			<TextView android:text="時間：11月10日 " 
-				android:textSize="14sp"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    			<TextView android:text="組織者：田中さん" 
-				android:textSize="14sp"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    		</LinearLayout>
-			<TextView android:text="場所：マークシティ" 
-				android:textSize="14sp"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
-    	</LinearLayout>
-	<Button android:text="詳しく"
-		android:layout_gravity="right|bottom"
-		style="@style/buttonA"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	</FrameLayout>
-	<View  android:layout_width="fill_parent"  android:layout_height="1dip" android:background="?android:attr/listDivider"  /> 
-	
-	<FrameLayout
-	android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingLeft="10dip" android:paddingRight="10dip">
-		<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    		android:orientation="vertical" >
-		    <TextView android:text="インタン者集合" 
-				android:textSize="20sp"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
-		    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    		android:orientation="horizontal" >
-    			<TextView android:text="時間：11月10日 " 
-				android:textSize="14sp"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    			<TextView android:text="組織者：田中さん" 
-				android:textSize="14sp"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    		</LinearLayout>
-			<TextView android:text="場所：マークシティ" 
-				android:textSize="14sp"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"/>
-    	</LinearLayout>
-	<Button android:text="詳しく"
-	    style="@style/buttonA"
-		android:layout_gravity="right|bottom"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	</FrameLayout>
-	<View  android:layout_width="fill_parent"  android:layout_height="1dip" android:background="?android:attr/listDivider"  /> 
+    		
+    		<!-- イベントリスト 　内容　-->
+    		<ListView
+    	 		android:id="@+id/eventList"
+    	 		android:layout_width="match_parent"
+    	 		android:layout_height="match_parent"
+    	 		android:layout_marginTop="10dip" >
+    		</ListView>
+    		
+
 </LinearLayout>
-</ScrollView>

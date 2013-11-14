@@ -5,17 +5,23 @@
     	android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
     	android:orientation="vertical" 
-    	android:layout_gravity="center">
+    	android:layout_gravity="center_horizontal">"
     	
     	<!-- TITLE -->
-    	<TextView android:text="@string/text_newEvent" android:layout_gravity="center"
+    	<TextView 
+    	    android:text="@string/text_newEvent" 
+    	    android:layout_gravity="center"
 			android:textSize="24sp"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+			android:padding="10dip"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     	
     	<!--EVENT NAME -->
-		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-			<TextView android:text="@string/text_eventName" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		<LinearLayout 
+		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+			<TextView 
+			    android:text="@string/text_eventName" 
+			    android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
 		    <EditText
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -25,8 +31,13 @@
 		</LinearLayout>
 		
 		<!--EVENT TIME -->
-		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-			<TextView android:text="@string/text_eventTime" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		<LinearLayout 
+		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+			<TextView 
+			    android:text="@string/text_eventTime" 
+			    android:layout_width="80dip" 
+			    android:layout_height="wrap_content"></TextView>
 			<EditText
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -36,17 +47,21 @@
 		</LinearLayout>
 
 		<!--EVENT ADDRESS -->
-		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-			<TextView android:text="@string/text_eventAddr" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		<LinearLayout 
+		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+			<TextView 
+			    android:text="@string/text_eventAddr" 
+			    android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
 		    <EditText
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
 		        android:ems="7"
 		        android:inputType="textPostalAddress" />
-		    <Button android:text="@string/button_search"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:padding="0dip"></Button>
+		    <Button 
+		        android:text="@string/button_search"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 		</LinearLayout>
 		
 		<!--EVENT PEOPLE -->
@@ -59,16 +74,16 @@
 		</EditText>
 			
 		<!--BUTTON -->
-		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" 
-		    android:orientation="horizontal" android:layout_gravity="center">
-			<Button android:text="@string/button_makeEvent"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:padding="8dip"></Button>
-			<Button android:text="@string/button_clear"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:padding="8dip"></Button>
-			
-
+		<LinearLayout 
+		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="horizontal" 
+		    android:layout_gravity="center">
+			<Button 
+			    android:text="@string/button_makeEvent"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+			<Button 
+			    android:text="@string/button_clear"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 		</LinearLayout>
 		
 	</LinearLayout>
