@@ -17,24 +17,42 @@
         android:glEsVersion="0x00020000"
         android:required="true"/>
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.example.get_together.ContactActivity"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name="com.example.get_together.EventActivity"
+            android:label="@string/app_name" >
+        </activity> 
         <activity
             android:name="com.example.get_together.LoginActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+
+         <activity
             android:name="com.example.get_together.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name="com.example.get_together.MenuActivity"
+            android:label="@string/app_name" >
+
+        </activity>        
+         <activity
+            android:name="com.example.get_together.NewEventActivity"
             android:label="@string/app_name" >
         </activity>
         <meta-data

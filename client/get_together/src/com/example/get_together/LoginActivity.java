@@ -18,6 +18,7 @@ import android.os.Handler;
 import android.widget.*;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 
 public class LoginActivity extends Activity implements View.OnClickListener{
 	private static final String TAG = "LoginTest";
@@ -31,7 +32,9 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
+		
 		Log.i(TAG, "in the login");
 		mail = (EditText) this.findViewById(R.id.editText1);
         pws = (EditText) this.findViewById(R.id.editText2);
@@ -58,7 +61,9 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 			//if login succeed
 			if(isLoginSucceed){
 				Intent intent = new Intent();
-				intent.setClass(getApplicationContext(), MainActivity.class);
+				//test
+				intent.setClass(getApplicationContext(), MenuActivity.class);
+				//intent.setClass(getApplicationContext(), EventActivity.class);
 				startActivity(intent);
 			}else{
 				//Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();

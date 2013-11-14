@@ -6,9 +6,53 @@
     <string name="text_login_id">メール:</string>
     <string name="text_login_pwd">パースワード</string>
     <string name="button_login">ログイン</string>
+      <string name="m_new">new</string>
     <string name="m_event">イベント</string>
     <string name="m_contact">友人帳</string>
     <string name="m_map">地図</string>
     <string name="m_settings">設定</string>
+
+    <string name="button_login">ログイン</string>    
+    <!-- EVENT PAGE -->
+    <string name="button_refresh">refresh</string>
+    <string name="button_newEvent">new</string>
+    
+    <!-- NEW EVENT PAGE -->
+    <string name="text_newEvent">New Event</string>
+    <string name="text_eventName">Name:</string>
+    <string name="text_eventTime">Time:</string>
+    <string name="text_eventAddr">Address:</string>
+    <string name="text_friendList">Friend List:</string>
+    <string name="button_makeEvent">Make Event</string>
+    <string name="button_clear">clear</string>
+    <string name="button_search">search</string>
+    
+    
+    <!-- CONTRACT PAGE -->
+    <string name="text_contact">友人帳</string>
+
+    <style name="MMTabButton">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/bg_checkbox_menus</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:paddingTop">2.0dip</item>
+    </style>
+
+    <style name="buttonA">
+        <item name="android:textSize">14dip</item>
+        <item name="android:padding">0dip</item>
+    </style>
+
+    <string name="title_activity_event">EventActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_new_event">NewEventActivity</string>
+    <string name="title_activity_contact">ContactActivity</string>
+    
 
 </resources>

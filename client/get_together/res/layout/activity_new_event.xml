@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent">
+	<LinearLayout
+    	android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+    	android:orientation="vertical" 
+    	android:layout_gravity="center">
+    	
+    	<!-- TITLE -->
+    	<TextView android:text="@string/text_newEvent" android:layout_gravity="center"
+			android:textSize="24sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+    	
+    	<!--EVENT NAME -->
+		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+			<TextView android:text="@string/text_eventName" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		    <EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10" >
+				 	<requestFocus />
+			</EditText>
+		</LinearLayout>
+		
+		<!--EVENT TIME -->
+		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+			<TextView android:text="@string/text_eventTime" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10" >
+				 	<requestFocus />
+			</EditText>	
+		</LinearLayout>
+
+		<!--EVENT ADDRESS -->
+		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+			<TextView android:text="@string/text_eventAddr" android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		    <EditText
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="7"
+		        android:inputType="textPostalAddress" />
+		    <Button android:text="@string/button_search"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:padding="0dip"></Button>
+		</LinearLayout>
+		
+		<!--EVENT PEOPLE -->
+		<TextView android:text="@string/text_friendList"  android:layout_width="80dip" android:layout_height="wrap_content"></TextView>
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ems="10" >
+				<requestFocus />
+		</EditText>
+			
+		<!--BUTTON -->
+		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="horizontal" android:layout_gravity="center">
+			<Button android:text="@string/button_makeEvent"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:padding="8dip"></Button>
+			<Button android:text="@string/button_clear"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:padding="8dip"></Button>
+			
+
+		</LinearLayout>
+		
+	</LinearLayout>
+</ScrollView>
