@@ -13,6 +13,14 @@ db.execSQL("CREATE TABLE event"+
 		
 public class Event {
 	
+	private Integer event_id;
+	private String status;
+	private String time;
+	private String hostess;
+	private String address;
+	private String p_latitude;
+	private String p_longtitude;
+	
 	public Event(Integer event_id, String status, String time,String  hostess,String  address,String  p_latitude,String  p_longtitude) {
 		this.event_id = event_id;
 		this.status = status;
@@ -64,12 +72,6 @@ public class Event {
 	public void setP_longtitude(String p_longtitude) {
 		this.p_longtitude = p_longtitude;
 	}
-	private Integer event_id;
-	private String status;
-	private String time;
-	private String hostess;
-	private String address;
-	private String p_latitude;
-	private String p_longtitude;
+
 	
 }

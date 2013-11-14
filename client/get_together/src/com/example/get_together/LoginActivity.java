@@ -62,6 +62,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 			if(isLoginSucceed){
 				Intent intent = new Intent();
 				//test
+				
 				intent.setClass(getApplicationContext(), MenuActivity.class);
 				//intent.setClass(getApplicationContext(), EventActivity.class);
 				startActivity(intent);
@@ -70,40 +71,42 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 				//System.out.println("");
 			}
 		}
+		
+		//login function
+		private boolean gotoLogin(String userMail, String password,String connectUrl) {
+			String result = null; //
+			boolean isLoginSucceed = false;
+			//test
+			System.out.println("userMail:"+userMail);
+			System.out.println("password:"+password);
+			//send Http Post request
+			HttpPost httpRequest = new HttpPost(connectUrl);
+			//use NameValuePair[] to store the params which need to be sent.
+			List params = new ArrayList();
+			params.add(new BasicNameValuePair("mail",userMail));
+			params.add(new BasicNameValuePair("pwd",password));
+			try{
+				//send HTTP request
+				httpRequest.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));
+				//get HTTP response
+				HttpResponse httpResponse=new DefaultHttpClient().execute(httpRequest);
+				// if succeed
+				if(httpResponse.getStatusLine().getStatusCode()==200){
+					//get the string comes from server.
+					result=EntityUtils.toString(httpResponse.getEntity());
+					System.out.println("result= "+result);
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			if(result.equals("login succeed")){
+				isLoginSucceed = true;
+			}
+			return isLoginSucceed;
+			}
 	}
 	
-	//login function
-	private boolean gotoLogin(String userMail, String password,String connectUrl) {
-		String result = null; //
-		boolean isLoginSucceed = false;
-		//test
-		System.out.println("userMail:"+userMail);
-		System.out.println("password:"+password);
-		//send Http Post request
-		HttpPost httpRequest = new HttpPost(connectUrl);
-		//use NameValuePair[] to store the params which need to be sent.
-		List params = new ArrayList();
-		params.add(new BasicNameValuePair("mail",userMail));
-		params.add(new BasicNameValuePair("pwd",password));
-		try{
-			//send HTTP request
-			httpRequest.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));
-			//get HTTP response
-			HttpResponse httpResponse=new DefaultHttpClient().execute(httpRequest);
-			// if succeed
-			if(httpResponse.getStatusLine().getStatusCode()==200){
-				//get the string comes from server.
-				result=EntityUtils.toString(httpResponse.getEntity());
-				System.out.println("result= "+result);
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		if(result.equals("login succeed")){
-			isLoginSucceed = true;
-		}
-		return isLoginSucceed;
-		}
+	
 
 		@Override
 		public void onClick(View arg0) {
