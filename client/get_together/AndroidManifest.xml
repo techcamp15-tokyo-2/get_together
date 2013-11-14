@@ -61,6 +61,8 @@
         <meta-data
     android:name="com.google.android.gms.version"
     android:value="@integer/google_play_services_version" />
+        <uses-library android:name="android.test.runner" />
     </application>
-
+<instrumentation android:name="android.test.InstrumentationTestRunner"
+  android:targetPackage="com.example.get_together" android:label="Tests for My App" />
 </manifest>

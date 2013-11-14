@@ -117,7 +117,7 @@ public class EventService {
 	 */
 	public long getCount(){
 		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
-		Cursor cursor = db.rawQuery("select count(*) from person", null);
+		Cursor cursor = db.rawQuery("select count(*) from event", null);
 		cursor.moveToFirst();
 		long result = cursor.getLong(0);
 		cursor.close();

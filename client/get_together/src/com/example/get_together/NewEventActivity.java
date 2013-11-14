@@ -7,10 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+=======
+import android.location.Location;
+>>>>>>> df07c6c016c1be482bac5e5780679aeca22578dd
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -27,6 +31,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 public class NewEventActivity extends Activity implements View.OnTouchListener {
 	
 	private Button searchAddrBtn;
@@ -36,6 +41,10 @@ public class NewEventActivity extends Activity implements View.OnTouchListener {
 	private EditText dateTimeSelect;
 	private EditText addressInput;
 	
+=======
+public class NewEventActivity extends Activity {
+	Location Destination;
+>>>>>>> df07c6c016c1be482bac5e5780679aeca22578dd
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
