@@ -6,12 +6,11 @@
     <item
         android:id="@+id/m_contact"
         android:title="@string/m_contact"/>
-     <item
+    <item
         android:id="@+id/m_map"
         android:title="@string/m_map"/>
-      <item
+    <item
         android:id="@+id/m_settings"
         android:title="@string/m_settings"/>
- 
 
 </menu>

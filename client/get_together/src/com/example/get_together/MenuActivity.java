@@ -22,7 +22,6 @@ public class MenuActivity extends TabActivity {
 		tabHost=this.getTabHost();
         TabHost.TabSpec spec;
         Intent intent;
-
         intent=new Intent().setClass(this, NewEventActivity.class);
         spec=tabHost.newTabSpec("m_new").setIndicator("m_new").setContent(intent);
         tabHost.addTab(spec);

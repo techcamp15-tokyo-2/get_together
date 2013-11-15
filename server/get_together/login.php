@@ -6,7 +6,7 @@ $query=mysql_query($sql);
 $rs = mysql_fetch_array($query);
 	if(is_array($rs)){
 		if($_POST['pwd']==$rs['password']){
-			echo "login succeed";
+			echo $usermail;
 		}
 		else{
 			echo "error";

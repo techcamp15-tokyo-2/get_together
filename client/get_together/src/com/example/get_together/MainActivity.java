@@ -1,5 +1,7 @@
 package com.example.get_together;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -32,6 +35,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -44,6 +50,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 
 public class MainActivity extends FragmentActivity 
 				implements GooglePlayServicesClient.ConnectionCallbacks,
@@ -52,6 +59,7 @@ public class MainActivity extends FragmentActivity
 	LocationClient mLocationClient;
 	Location mCurrentLocation;
 	LocationRequest mLocationRequest;
+	
 	ArrayList<Location> list = new ArrayList<Location>();
 	private static String msg;
 	private static final int MILLISECONDS_PER_SECOND = 1000; // Milliseconds per second
@@ -64,6 +72,11 @@ public class MainActivity extends FragmentActivity
 	
 	private GoogleMap mMap;
 	private Marker my_location;
+	private Marker other_location;
+	private MyHandler myHandler;
+
+	
+	String userMail;
 	
 	//this flag is very important. when you move your map camera to find place A, 
 	//the camera location updated function in the
@@ -83,8 +96,6 @@ public class MainActivity extends FragmentActivity
 	private List<String []> guest_list = new ArrayList<String []>();
 	//String[] guest = new String[3];
 	//guest_list.add(new String[3]);
-
-	
 	
 	
 	
@@ -104,6 +115,30 @@ public class MainActivity extends FragmentActivity
         return mDialog;                                                              // Return a Dialog to the DialogFragment.
 		}
 	}
+	
+	class MyHandler extends Handler{
+		public MyHandler()
+		{
+			
+		}
+		public MyHandler(Looper L){
+			super(L);
+		}
+		@Override
+		public void handleMessage(Message msg){
+			super.handleMessage(msg);
+			Bundle b = msg.getData();
+			String mail_other = b.getString("other_mail");
+			String latitude_other = b.getString("latitude");
+			String longtitude_other = b.getString("longtitude");
+			LatLng other_p = new LatLng(Double.valueOf(latitude_other),Double.valueOf(longtitude_other));
+	        other_location.setSnippet(mail_other);
+	        other_location.showInfoWindow();
+			other_location.setPosition(other_p);	
+		}
+		
+	}
+	
 	private final class MyLocationListener implements LocationListener {
 		@Override
 	     public void onLocationChanged(Location location) {
@@ -120,6 +155,9 @@ public class MainActivity extends FragmentActivity
 	        //And get other people's position from server in this function.
 	        //remember that you should use multi-thread tech.
 	        //For example: Runnable interface
+	        //get the data from here!!
+	        //then 
+	        myHandler = new MyHandler();
 	        PositionAccessService send_position_thread = new PositionAccessService();
 			new Thread(send_position_thread).start();
 	      }
@@ -128,6 +166,7 @@ public class MainActivity extends FragmentActivity
 	{
 		LatLng current_location= new LatLng(latitude, longtitude);
 		my_location.setPosition(current_location);
+		my_location.setSnippet(userMail);
 		if (camera_changed == false)
 		{
 			mMap.animateCamera(CameraUpdateFactory.newLatLng(current_location));
@@ -169,6 +208,16 @@ public class MainActivity extends FragmentActivity
 	    mMap.setMyLocationEnabled(true);
 	    camera_changed = false;
 	    located = false;
+	    SharedPreferences sharedata = this.getSharedPreferences("TabHost", 0);
+		userMail= sharedata.getString("userMail",null);
+		
+		
+		mMap.addMarker(new MarkerOptions()
+        .position(new LatLng(35.658517, 139.701334))
+        .title("集合場所")
+        .snippet("～渋谷駅です～")
+        .draggable(true)
+        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 		
 	    
 	    mMap.setOnCameraChangeListener(new OnCameraChangeListener() {
@@ -192,6 +241,7 @@ public class MainActivity extends FragmentActivity
 /* Called by Location Services when the request to connect the client finishes successfully. At this point, you can request the current location or start periodic updates */
 	@Override
 	public void onConnected(Bundle dataBundle) {
+		
 	    if (mMap != null) {
 	    	located = true;
 	    	mCurrentLocation = mLocationClient.getLastLocation();
@@ -201,6 +251,14 @@ public class MainActivity extends FragmentActivity
 	        .title("My Location")
 	        .snippet("～ニャンニャンです～")
 	        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+	    	
+	    	
+	    	
+	    	other_location = mMap.addMarker(new MarkerOptions()
+	        .position(latlng)
+	        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+	    	//other_location.setVisible(false);
+	    	
 	    	//HUE_BLUE, HUE_YLLOW, HUE_ROSE, HUE_RED, HUE_GREEN
 	        //.icon(BitmapDescriptorFactory.fromResource(android.R.drawable.presence_online)));
 	    	mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 16));
@@ -276,25 +334,34 @@ public class MainActivity extends FragmentActivity
 	//position with the same event_ID periodically.
 	//when you click the "集合"button, it should start the mapActivity, 
 	//with paramter "event_id, person_id, position_latitude, position_longtitude"
+	
+	
+	
 	class PositionAccessService implements  Runnable
 	{
 //		private Integer event_id;
 //		private String mail_as_id;
 		//Location mCurrentLocation;
+		private Marker other_location;
+//		private GoogleMap map;
 //		Location Destination;
+
+
 		
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			//connect to server
-			String connectURL="http://172.19.208.114/get_together/location.php/";
+			String connectURL="http://172.19.211.105/get_together/location.php/";
 			
-			//send the mail and password to server.
-			boolean isGetDataSucceed = false;;
+			//send the mail and password to serve
+			boolean isGetDataSucceed = false;
 			if (located == true)
 			{
+				SharedPreferences sharedata = getSharedPreferences("TabHost", 0);
+				userMail= sharedata.getString("userMail",null);
 //				isGetDataSucceed = postLocationData(event_id, mail_as_id, 
-				isGetDataSucceed = postLocationData(1, "g@g.com",
+				isGetDataSucceed = postLocationData(1, userMail,
 						String.valueOf(mCurrentLocation.getLatitude()),
 						String.valueOf(mCurrentLocation.getLongitude()),
 						connectURL);
@@ -327,6 +394,7 @@ public class MainActivity extends FragmentActivity
 				String latitude,String longtitude,String connectUrl) {
 			String result = null; //
 			boolean isGetDataSucceed = false;
+			StringBuilder sbuilder=new StringBuilder();
 			//test
 			//send Http Post request
 			HttpPost httpRequest = new HttpPost(connectUrl);
@@ -345,19 +413,55 @@ public class MainActivity extends FragmentActivity
 				// if succeed
 				if(httpResponse.getStatusLine().getStatusCode()==200){
 					//get the string comes from server.
-					result=EntityUtils.toString(httpResponse.getEntity());
-					//	//String[] guest = new String[3];
-					//guest_list.add(new String[3]);
-					System.out.println("result= "+result);
-				}
-			}catch(Exception e){
+					//result=EntityUtils.toString(httpResponse.getEntity());
+					BufferedReader reader = new BufferedReader
+                            (new InputStreamReader(httpResponse.getEntity().getContent(),"UTF-8"));
+					for(String s=reader.readLine();s!=null;s=reader.readLine())
+					{
+						//System.out.println(s);
+						//s=new String(s.getBytes("UNICODE"), "UTF-8");
+						sbuilder.append(s);
+					}
+					JSONArray json=new JSONArray(sbuilder.toString());
+					
+	                for(int i=0;i<json.length();i++)
+	                {
+	                	if (!mail_as_id.equals((json.getJSONObject(i).getString("mail_id") )))
+	                	{
+	                		System.out.println(mail_as_id);
+	                		Message msg = new Message();
+	                		Bundle b = new Bundle();
+	                		b.putString("other_mail",json.getJSONObject(i).getString("mail_id"));
+	                		b.putString("latitude",json.getJSONObject(i).getString("latitude"));
+	                		b.putString("longtitude",json.getJSONObject(i).getString("longtitude"));
+	                		msg.setData(b);
+	                		MainActivity.this.myHandler.sendMessage(msg);
+	                		
+//		                	LatLng latlng = new LatLng(Double.valueOf(json.getJSONObject(i).getString("latitude")),
+//		                	Double.valueOf(json.getJSONObject(i).getString("longtitude")));
+//	                		other_location.setPosition(latlng);
+//
+//		                	other_location.setTitle((json.getJSONObject(i).getString("event_id")));
+//		                	other_location.setPosition(latlng);
+//		                	other_location.setVisible(true);
+		        	    	
+		        	    	//other_location.setPosition(latlng);
+		                    System.out.println((json.getJSONObject(i).getString("mail_id")));
+		                    System.out.println((json.getJSONObject(i).getString("event_id")));
+		                    System.out.println((json.getJSONObject(i).getString("latitude")));
+		                    System.out.println((json.getJSONObject(i).getString("longtitude")));
+		                    isGetDataSucceed = true;
+		                	}
+	                }
+	                
+	                //JSONArray jssonArray=json.toJSONArray(jssonArray);
+	                }
+			}
+			catch(Exception e){
 				e.printStackTrace();
 			}
 //			if(result.equals("send data succeed")){
 			//test
-			if(result != null){
-				isGetDataSucceed = true;
-			}
 			return isGetDataSucceed;
 			}
 	}

@@ -24,7 +24,7 @@ public class EventService {
 				"(event_id integer primary key autoincrement,"+
 				"status varchar(5)"+
 				"time varchar(32)"+
-				"hostess varchar(10)"+
+				"hostess varchar(10)"+ // hostess as the name of the event
 				"address varchar(50)"+
 				"p_latitude double"+
 				"p_longtitude double");

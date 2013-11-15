@@ -24,7 +24,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 				"(event_id integer primary key autoincrement,"+
 				"status varchar(5)"+
 				"time varchar(32)"+
-				"hostess varchar(10)"+
+				"hostess varchar(32)"+
 				"address varchar(50)"+
 				"p_Latitude double"+
 				"p_longtitude double");
@@ -38,7 +38,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
 		// TODO Auto-generated method stub
 		//db.execSQL("ALTER TABLE event_friends ADD ef_id integer");
-
 	}
 
 }

@@ -1,18 +1,33 @@
-<LinearLayout 
+<FrameLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    android:orientation="vertical" 
-    android:layout_gravity="center">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/bg_login"
+    android:orientation="vertical">
+    <LinearLayout 
+    	android:layout_width="wrap_content"
+   		android:layout_height="wrap_content" 
+    	android:orientation="vertical" 
+    	android:layout_gravity="center">
+    	
+        <!-- LOGO -->
+    	<ImageView
+        android:id="@+id/imageView1"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" />
     
 		<!-- ID -->
 		<LinearLayout 
 		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
 		    android:orientation="horizontal">
 			<TextView  android:text="@string/text_login_id" 
-		   		android:layout_gravity="center" 
-		    	android:layout_width="100dip" 
+		   		android:layout_gravity="bottom" 
+		    	android:gravity="right" 
+		   		android:layout_marginRight="10dip"
+		    	android:layout_width="90dip" 
 		    	android:layout_height="wrap_content">
 			</TextView>
 		    <EditText
@@ -28,11 +43,15 @@
 		<!-- PASSWORD -->
 		<LinearLayout 
 		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:layout_marginTop="10dip"
 		    android:orientation="horizontal">
 			<TextView  
 		    	android:text="@string/text_login_pwd" 
-		    	android:layout_gravity="center" 
-		    	android:layout_width="100dp" android:layout_height="wrap_content">
+		    	android:layout_gravity="bottom" 
+		    	android:gravity="right" 
+		   		android:layout_marginRight="10dip"
+		    	android:layout_width="90dip" 
+		    	android:layout_height="wrap_content">
 			</TextView>
 		    <EditText
 				android:id="@+id/editText2"
@@ -50,4 +69,5 @@
 			android:layout_marginTop="20dip"
 			android:text="@string/button_login"/>
 	</LinearLayout>
+</FrameLayout>
 

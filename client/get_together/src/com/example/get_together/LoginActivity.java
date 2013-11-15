@@ -13,6 +13,7 @@ import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.content.*;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.*;
@@ -35,8 +36,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
 		
-		Log.i(TAG, "in the login");
-		mail = (EditText) this.findViewById(R.id.editText1);
+	Log.i(TAG, "in the login");		mail = (EditText) this.findViewById(R.id.editText1);
         pws = (EditText) this.findViewById(R.id.editText2);
         btn_login = (Button) this.findViewById(R.id.button1);
         btn_login.setOnClickListener(this);
@@ -54,15 +54,21 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 			password = pws.getText().toString().trim();
 			Log.i(TAG, "in the login");
 			//connect to server
-			String connectURL="http://172.19.208.114/get_together/login.php/";
+			String connectURL="http://172.19.211.105/get_together/login.php/";
 			
-			//send the mail and password to server.
-			boolean isLoginSucceed = gotoLogin(userMail, password,connectURL);
+		//send the mail and password to server.
+			String user_mail = gotoLogin(userMail, password,connectURL);
 			//if login succeed
-			if(isLoginSucceed){
+			if(user_mail != null){
+				
+				SharedPreferences settings = getSharedPreferences("TabHost", 0);
+			    SharedPreferences.Editor editor = settings.edit();
+			    editor.putString("userMail", user_mail);
+			      // Commit the edits!
+			    editor.commit();
+
 				Intent intent = new Intent();
 				//test
-				
 				intent.setClass(getApplicationContext(), MenuActivity.class);
 				//intent.setClass(getApplicationContext(), EventActivity.class);
 				startActivity(intent);
@@ -73,7 +79,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 		}
 		
 		//login function
-		private boolean gotoLogin(String userMail, String password,String connectUrl) {
+		private String gotoLogin(String userMail, String password,String connectUrl) {
 			String result = null; //
 			boolean isLoginSucceed = false;
 			//test
@@ -99,10 +105,11 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-			if(result.equals("login succeed")){
-				isLoginSucceed = true;
+			if(result.equals(userMail)){
+				return result;
 			}
-			return isLoginSucceed;
+			else
+				return null;
 			}
 	}
 	
