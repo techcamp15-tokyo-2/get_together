@@ -30,7 +30,7 @@ public class MenuActivity extends TabActivity {
         spec=tabHost.newTabSpec("m_event").setIndicator("m_event").setContent(intent);
         tabHost.addTab(spec);
         
-        intent=new Intent().setClass(this, MainActivity.class);
+        intent=new Intent().setClass(this, TestActivity.class);
         spec=tabHost.newTabSpec("m_map").setIndicator("m_map").setContent(intent);
         tabHost.addTab(spec);
         

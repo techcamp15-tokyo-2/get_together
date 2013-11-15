@@ -7,12 +7,22 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+<<<<<<< HEAD
 
+=======
+=======
+import android.location.Location;
+>>>>>>> df07c6c016c1be482bac5e5780679aeca22578dd
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -28,8 +38,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TimePicker;
 import android.widget.Toast;
+<<<<<<< HEAD
 
 
+=======
+
+<<<<<<< HEAD
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 public class NewEventActivity extends Activity implements View.OnTouchListener {
 	
 	private Button searchAddrBtn;
@@ -39,6 +54,13 @@ public class NewEventActivity extends Activity implements View.OnTouchListener {
 	private EditText dateTimeSelect;
 	private EditText addressInput;
 	
+<<<<<<< HEAD
+=======
+=======
+public class NewEventActivity extends Activity {
+	Location Destination;
+>>>>>>> df07c6c016c1be482bac5e5780679aeca22578dd
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,11 +98,14 @@ public class NewEventActivity extends Activity implements View.OnTouchListener {
 	private View.OnClickListener searchAddrBtnListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
+<<<<<<< HEAD
 			Intent intent = new Intent();
 			//test
 			intent.setClass(getApplicationContext(), MainActivity.class);
 			//intent.setClass(getApplicationContext(), EventActivity.class);
 			startActivity(intent);
+=======
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 		Toast.makeText(getApplicationContext(), "search the map", Toast.LENGTH_SHORT).show();
 		}
 	};

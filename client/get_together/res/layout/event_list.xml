@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 			<FrameLayout
 			    xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
 				android:layout_width="fill_parent" android:layout_height="wrap_content" 
 				android:paddingLeft="10dip" 
 				android:paddingRight="10dip">
+=======
+				android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingLeft="10dip" android:paddingRight="10dip">
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 				<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
     				android:orientation="vertical" >
 		    		<TextView 
@@ -28,7 +32,10 @@
 						android:layout_width="fill_parent" android:layout_height="wrap_content"/>
    				</LinearLayout>
 				<Button android:text="詳しく"
+<<<<<<< HEAD
 				    android:id="@+id/eventButton"
+=======
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 					android:layout_gravity="right|bottom"
 					style="@style/buttonA"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>

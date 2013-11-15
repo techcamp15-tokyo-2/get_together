@@ -7,8 +7,11 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+=======
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,7 +22,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 import android.widget.Toast;
 
 public class EventActivity extends Activity {
@@ -27,16 +33,22 @@ public class EventActivity extends Activity {
 	private ImageButton refreshBtn;
 	private ImageButton logoutBtn;
 	private ImageButton hiddenBtn;
+<<<<<<< HEAD
 	private TextView yourName;
 	private Button getTogether;
 	private FrameLayout nowEvent;
 	private String userMail;
+=======
+	private Button getTogether;
+	private FrameLayout nowEvent;
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 	
 	private boolean hiddenFlag=true;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+<<<<<<< HEAD
 
 		setContentView(R.layout.activity_event);
 		SharedPreferences sharedata = this.getSharedPreferences("TabHost", 0);
@@ -48,6 +60,13 @@ public class EventActivity extends Activity {
 		//get event list
 		ListView lv = (ListView) findViewById(R.id.eventList);
 		SimpleAdapter adapter = new EventAdapter(this,getEventList(),R.layout.event_list,
+=======
+		setContentView(R.layout.activity_event);
+		
+		//get event list
+		ListView lv = (ListView) findViewById(R.id.eventList);
+		SimpleAdapter adapter = new SimpleAdapter(this,getEventList(),R.layout.event_list,
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 				new String[]{"eventName","eventHostess","eventTime","eventAddress"},
 				new int[]{R.id.eventName,R.id.eventHostess,R.id.eventTime,R.id.eventAddress});
 		lv.setAdapter(adapter);
@@ -140,7 +159,10 @@ public class EventActivity extends Activity {
 		map.put("eventAddress", "場　所："+"渋谷アークシティ");
 		list.add(map);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 		return list;
 	}
 }

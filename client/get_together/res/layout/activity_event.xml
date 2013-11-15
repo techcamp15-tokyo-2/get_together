@@ -15,7 +15,11 @@
 		    android:layout_gravity="left|center_vertical"
 		    android:background="#00000000"
 		    android:src="@android:drawable/ic_menu_rotate" />		
+<<<<<<< HEAD
 		<TextView android:id="@+id/yourName" android:layout_gravity="center"
+=======
+		<TextView android:text="Your Name" android:layout_gravity="center"
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
 			android:textSize="24sp"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 		<ImageButton
@@ -216,7 +220,12 @@
     		<ListView
     	 		android:id="@+id/eventList"
     	 		android:layout_width="match_parent"
+<<<<<<< HEAD
     	 		android:layout_height="match_parent">
+=======
+    	 		android:layout_height="match_parent"
+    	 		android:layout_marginTop="10dip" >
+>>>>>>> deb727a72214fcc5d0b00c77474574758c85e23c
     		</ListView>
     		
 
